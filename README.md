@@ -1,2 +1,2 @@
-# bakkelund
-Python implementation of the Bakkelund distance, i.e. a metric over the longest common subsequence (LCS).
+# Metrics
+Python implementation of some more uncommon metrics. Currently only longest common subsequence LCS metrics are implemented.
