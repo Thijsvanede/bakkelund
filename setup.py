@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="metrics",
-    version="1.0.0",
+    name="distance-metrics",
+    version="0.0.2",
     author="Thijs van Ede",
     author_email="t.s.vanede@utwente.nl",
     description="Python module of less-common metrics.",
