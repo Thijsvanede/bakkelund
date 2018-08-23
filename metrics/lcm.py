@@ -1,7 +1,41 @@
 import numpy as np
 
+def bakkelund(u, v):
+	""" Compute the bakkelund distance between vectors u and v.
+		The bakkelund distance is defined as 1 - LCS(u, v) / M(u, v). Where
+		 - LCS(u, v) is the length of the longest common subsequence of u and v;
+		 - M(u, v) is the length of the longest vector between u and v.
+		
+		Parameters
+		----------
+		u : (N,) array_like
+			Input vector of features of u. Used to compute distance to v.
+			
+		v : (N,) array_like
+			Input vector of features of v. Used to compute distance to u.
+			
+		Returns
+		-------
+		result : float
+			Bakkelund distance between `u` and `v`.
+			
+		"""
+	# Transform input to numpy arrays if not given
+	u = np.asarray([x for x in u])
+	v = np.asarray([x for x in v])
+	
+	# Perform checks
+	if u.ndim > 1 or v.ndim > 1:
+		raise ValueError("Input vector `u` should be 1-D.")
+	
+	# Return the bakkelund distance
+	return 1. - _llcs_speedup_(u, v) / max(u.shape[0], v.shape[0])
+
 def llcs(u, v):
-	""" Realise a small speedup for finding length of longest common subsequence
+	""" Quickly compute the length of the longest common
+		subsequence between vectors u and v.
+		
+		Realise a small speedup for finding length of longest common subsequence
 		Speedup is achieved by the following heuristics (NB: resulting value
 		will still be the same as regular LLCS):
 			- Find common subsequences at start and ending (as these will always
