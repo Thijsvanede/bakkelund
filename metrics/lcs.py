@@ -29,7 +29,7 @@ def bakkelund(u, v):
 		raise ValueError("Input vector `u` should be 1-D.")
 	
 	# Return the bakkelund distance
-	return 1. - _llcs_speedup_(u, v) / max(u.shape[0], v.shape[0])
+	return 1. - llcs(u, v) / max(u.shape[0], v.shape[0])
 
 def llcs(u, v):
 	""" Quickly compute the length of the longest common
