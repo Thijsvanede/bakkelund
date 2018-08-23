@@ -5,6 +5,12 @@ Python implementation of some more uncommon metrics. Currently only longest comm
 This package requires the following python libraries:
  1. [numpy](http://www.numpy.org/) (automatically installed when package is installed via pip)
  
+## Installation
+The metrics package can be installed directly from `pip`.
+```
+pip3 install metrics
+```
+
 ## Metrics
 The metrics library currently has support for the following modules.
  1. Longest common subsequence metrics `metrics.lcs`
